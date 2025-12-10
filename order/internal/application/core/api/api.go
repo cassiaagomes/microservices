@@ -20,5 +20,5 @@ func (a Application) PlaceOrder(order domain.Order) (domain.Order, error) {
 	if err != nil {
 		return domain.Order{}, err
 	}
-	return order, nilss
+	return order, nil
 }

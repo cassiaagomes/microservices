@@ -20,7 +20,7 @@ func NewOrder(customerId int64, orderItems []OrderItem) Order {
 	return Order{
 		CreatedAt:  time.Now().Unix(),
 		Status:     "Pending",
-		CustomerID: customerId,ss
-		OrderItems: orderItems,ss
+		CustomerID: customerId,
+		OrderItems: orderItems,
 	}
 }
