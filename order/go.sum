@@ -5,10 +5,10 @@ github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03
 github.com/benbjohnson/clock v1.1.0/go.mod h1:J11/hYXuz8f4ySSvYwY0FKfm+ezbsZBKZxNJlLklBHA=
 github.com/cassiaagomes/microservices-proto v0.0.4 h1:sHj9Ddz6euRQbgZe9IYUlYNOonsqfY9521UsymHv1sU=
 github.com/cassiaagomes/microservices-proto v0.0.4/go.mod h1:kfxkkwa9zsPPQL+FDSPcX2cK7KXGgZqMxtKHy7L00IA=
-github.com/cassiaagomes/microservices-proto/golang/order v0.0.0-20260206235403-eeaa3981d65a h1:js8nAR+yFIGH2fGWNXgmNesRGIILWAZvWvTVfH5B08k=
-github.com/cassiaagomes/microservices-proto/golang/order v0.0.0-20260206235403-eeaa3981d65a/go.mod h1:Kzs0hIsahx3aCi4B4U6bguIP9vtRUr6TqlCJNzDqsC0=
-github.com/cassiaagomes/microservices-proto/golang/payment v0.0.0-20260206235403-eeaa3981d65a h1:dY1KV+g0+yLealhBtrwPTXPfJtXVF3MSEunUIZsBCOQ=
-github.com/cassiaagomes/microservices-proto/golang/payment v0.0.0-20260206235403-eeaa3981d65a/go.mod h1:FabzRc0X2npGIqlbUOcdfx8scfA9mTd+iV8HQ7UFK5A=
+github.com/cassiaagomes/microservices-proto/golang/order v0.0.5 h1:02YGZ5QygneFfEvfQ4G1btwB3Izl1dJ1P2PrRSOszjg=
+github.com/cassiaagomes/microservices-proto/golang/order v0.0.5/go.mod h1:Kzs0hIsahx3aCi4B4U6bguIP9vtRUr6TqlCJNzDqsC0=
+github.com/cassiaagomes/microservices-proto/golang/payment v0.0.5 h1:BrWYSXLHhK31nPZ1qglTh6wdTUwNSidJkfcuNkz7X50=
+github.com/cassiaagomes/microservices-proto/golang/payment v0.0.5/go.mod h1:FabzRc0X2npGIqlbUOcdfx8scfA9mTd+iV8HQ7UFK5A=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cncf/udpa/go v0.0.0-20191209042840-269d4d468f6f/go.mod h1:M8M6+tZqaGXZJjfX53e64911xZQV5JYwmTeXPW+k8Sc=

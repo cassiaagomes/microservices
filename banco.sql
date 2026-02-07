@@ -1,38 +1,41 @@
-CREATE DATABASE IF NOT EXISTS `order`;
-CREATE DATABASE IF NOT EXISTS `payment`;
- 
-USE `order`;
+-- =========================
+-- BANCO: microservices
+-- =========================
 
-CREATE TABLE orders (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+-- ---------- ORDER ----------
+CREATE TABLE IF NOT EXISTS orders (
+    id SERIAL PRIMARY KEY,
     customer_id BIGINT NOT NULL,
-    status VARCHAR(50) NOT NULL DEFAULT 'PENDING',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    deleted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    total_price NUMERIC(10,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE order_items (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS order_items (
+    id SERIAL PRIMARY KEY,
     order_id BIGINT NOT NULL,
-    product_code VARCHAR(100) NOT NULL,
+    product_code VARCHAR(50) NOT NULL,
+    unit_price NUMERIC(10,2) NOT NULL,
     quantity INT NOT NULL,
-    unit_price DECIMAL(10,2) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    deleted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
+    CONSTRAINT fk_order
+        FOREIGN KEY (order_id)
+        REFERENCES orders(id)
+        ON DELETE CASCADE
 );
 
-use `payment`;
-
-CREATE TABLE payments (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    customer_id BIGINT NOT NULL,
-    status VARCHAR(50) NOT NULL DEFAULT 'Pending',
+-- ---------- PAYMENT ----------
+CREATE TABLE IF NOT EXISTS payments (
+    id SERIAL PRIMARY KEY,
     order_id BIGINT NOT NULL,
-    total_price DECIMAL(10,2)NOT NULL,
-    created_at BIGINT NOT NULL,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    deleted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    customer_id BIGINT NOT NULL,
+    total_price NUMERIC(10,2) NOT NULL,
+    status VARCHAR(30) DEFAULT 'PAID',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ---------- SHIPPING ----------
+CREATE TABLE IF NOT EXISTS shippings (
+    id SERIAL PRIMARY KEY,
+    order_id BIGINT NOT NULL,
+    delivery_days INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

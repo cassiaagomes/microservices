@@ -2,7 +2,6 @@ package main
 
 import (
 	"os"
-
 	"github.com/cassiaagomes/microservices/shipping/config"
 	"github.com/cassiaagomes/microservices/shipping/internal/adapters/db"
 	"github.com/cassiaagomes/microservices/shipping/internal/adapters/grpc"

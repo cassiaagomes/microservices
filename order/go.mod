@@ -4,14 +4,10 @@ go 1.24.4
 
 require (
 	github.com/cassiaagomes/microservices-proto v0.0.4
-	github.com/cassiaagomes/microservices-proto/golang/order v0.0.4
-	github.com/cassiaagomes/microservices-proto/golang/payment v0.0.4
-	github.com/cassiaagomes/microservices-proto/golang/shipping v0.0.4
-
-	github.com/grpc-ecosystem/go-grpc-middleware v1.4.0
+	github.com/cassiaagomes/microservices-proto/golang/order v0.0.5
+	github.com/cassiaagomes/microservices-proto/golang/payment v0.0.5
 	google.golang.org/grpc v1.75.0
-
-	gorm.io/driver/postgres v1.6.0
+	gorm.io/driver/mysql v1.6.0
 	gorm.io/gorm v1.30.1
 )
 
