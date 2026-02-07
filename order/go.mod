@@ -3,9 +3,9 @@ module github.com/cassiaagomes/microservices/order
 go 1.24.4
 
 require (
-	github.com/cassiaagomes/microservices-proto/golang/order v0.0.1
-	github.com/cassiaagomes/microservices-proto/golang/payment v0.0.1
-	github.com/cassiaagomes/microservices-proto/golang/shipping v0.0.1
+	github.com/cassiaagomes/microservices-proto v0.0.1
+	github.com/cassiaagomes/microservices-proto/golang/order v0.0.0-20260206235403-eeaa3981d65a
+	github.com/cassiaagomes/microservices-proto/golang/payment v0.0.0-20260206235403-eeaa3981d65a
 	google.golang.org/grpc v1.75.0
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/gorm v1.30.1
@@ -24,9 +24,3 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250818200422-3122310a409c // indirect
 	google.golang.org/protobuf v1.36.8 // indirect
 )
-
-replace github.com/cassiaagomes/microservices-proto/golang/order => ../../microservices-proto/golang/order
-
-replace github.com/cassiaagomes/microservices-proto/golang/payment => ../../microservices-proto/golang/payment
-
-replace github.com/cassiaagomes/microservices-proto/golang/shipping => ../../microservices-proto/golang/shipping

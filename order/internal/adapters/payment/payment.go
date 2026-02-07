@@ -12,32 +12,39 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 )
 
-
 type Adapter struct {
 	payment payment.PaymentClient
 }
 
 func NewAdapter(paymentServiceUrl string) (*Adapter, error) {
 	var opts []grpc.DialOption
-	opts = append(opts, grpc.WithUnaryInterceptor(grpc_retry.UnaryClientInterceptor(
-		grpc_retry.WithCodes(codes.DeadlineExceeded,codes.ResourceExhausted, codes.Unavailable),
-		grpc_retry.WithMax(5),
-		grpc_retry.WithBackoff(grpc_retry.BackoffLinear(time.Second)),
-		)))
+
+	opts = append(opts,
+		grpc.WithUnaryInterceptor(
+			grpc_retry.UnaryClientInterceptor(
+				grpc_retry.WithCodes(codes.DeadlineExceeded, codes.ResourceExhausted, codes.Unavailable),
+				grpc_retry.WithMax(5),
+				grpc_retry.WithBackoff(grpc_retry.BackoffLinear(time.Second)),
+			),
+		),
+	)
+
 	opts = append(opts, grpc.WithTransportCredentials(insecure.NewCredentials()))
-	conn, err := grpc.NewClient(paymentServiceUrl, opts...)
+
+	conn, err := grpc.Dial(paymentServiceUrl, opts...)
 	if err != nil {
-		return nil, err 
+		return nil, err
 	}
+
 	client := payment.NewPaymentClient(conn)
 	return &Adapter{payment: client}, nil
 }
 
-func (a *Adapter) Charge(ctx context.Context,order *domain.Order) error {
+func (a *Adapter) Charge(ctx context.Context, order *domain.Order) error {
 	_, err := a.payment.Create(ctx, &payment.CreatePaymentRequest{
-		CustomerId: order.CustomerID,
-		OrderId: order.ID,
-		TotalPrice: order.TotalPrice(),
+		UserId:      int64(order.CustomerID),
+		OrderId:     order.ID,
+		TotalPrice:  order.TotalPrice(),
 	})
 	return err
 }
